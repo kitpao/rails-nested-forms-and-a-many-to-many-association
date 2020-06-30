@@ -1,0 +1,27 @@
+<h1><%= @survey.name %> Answers</h1>
+
+<%= form_for(@survey) do |f| %>
+  <% @participants.each do |participant| %>
+    <h3><%= participant.name %></h3>
+    <table>
+      <thead>
+        <tr>
+          <td>Question</td>
+          <td>Answer</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @questions.each do |question| %>
+        <tr>
+          <td><%= question.content %></td>
+          <td>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
