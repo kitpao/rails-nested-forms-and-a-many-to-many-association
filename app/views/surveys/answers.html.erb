@@ -18,15 +18,16 @@
             <%= f.fields_for :questions, question do |q| %>
               <%= q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a| %>
                 <%= a.text_area :content %>
-                <%= a.hidden_field :participant_id, participant.id %>
+                <%= a.hidden_field :participant_id, :value => participant.id %>
               <% end %>
             <% end %>
           </td>
         </tr>
+        <% end %>
       </tbody>
     </table>
   <% end %>
-  <div>
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
